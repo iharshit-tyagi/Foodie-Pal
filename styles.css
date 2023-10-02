@@ -66,3 +66,16 @@
   background-color: white;
   border-radius: 5px;
 }
+.search-input {
+  height: 30px;
+  width: 30%;
+  margin-left: 10%;
+  margin-right: 10%;
+}
+.search-container {
+  margin-top: 20px;
+  display: flex;
+  /* justify-content: space-around; */
+  gap: 10px;
+  /* border: 1px solid black; */
+}

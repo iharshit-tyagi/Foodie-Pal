@@ -4,10 +4,32 @@ import { useState } from "react";
 const Body = () => {
   //State Variable
   const [listOfRestaurants, setListOfRestaurants] = useState(resList);
-  let vegFilter = false;
-  let topResFilter = false;
   return (
     <div className="body-container">
+      <div className="search-container">
+        <input
+          className="search-input"
+          type="text"
+          placeholder="Enter the Restaurant name"
+        ></input>
+        <button
+          className="search-btn "
+          onClick={() => {
+            console.log("clicked");
+            const searchValue = document.querySelector(".search-input").value;
+            const searchResultList = resList.filter((obj) =>
+              obj.info.name.toLowerCase().includes(searchValue)
+            );
+            setListOfRestaurants(searchResultList);
+          }}
+
+          //
+          // <input type="text" className="searchTerm" value={searchText} placeholder="Search for Restaurants and food" onChange={(e)=>{ const currentSearch = e.currentTarget.value.toLowerCase(); setsearchText(currentSearch) }}></input>
+        >
+          Search
+        </button>
+      </div>
+
       <div className="filter-container">
         <button
           className="top-res-filter-btn"
