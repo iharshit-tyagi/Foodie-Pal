@@ -1,10 +1,28 @@
 import RestaurantCard from "./RestaurantCard";
 import resList from "../utils/resList";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import Shimmer from "../components/Shimmer";
+import { SWIGGY_API_URL, SWIGGY_API_URL_AGRA } from "../utils/constants";
 const Body = () => {
   //State Variable
-  const [listOfRestaurants, setListOfRestaurants] = useState(resList);
-  return (
+  const [listOfRestaurants, setListOfRestaurants] = useState([]);
+
+  useEffect(() => {
+    fetchData();
+  }, []);
+
+  const fetchData = async () => {
+    const data = await fetch(SWIGGY_API_URL_AGRA);
+    const jsonData = await data.json();
+    setListOfRestaurants(
+      jsonData?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle
+        ?.restaurants
+    );
+  };
+  //Ternary Operator
+  return listOfRestaurants.length === 0 ? (
+    <Shimmer />
+  ) : (
     <div className="body-container">
       <div className="search-container">
         <input
