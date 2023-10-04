@@ -6,7 +6,11 @@ import { SWIGGY_API_URL, SWIGGY_API_URL_AGRA } from "../utils/constants";
 const Body = () => {
   //State Variable
   const [listOfRestaurants, setListOfRestaurants] = useState([]);
-
+  const [searchText, setSearchText] = useState("");
+  const [filteredListOfRestaurants, setFilteredListOfRestaurants] = useState(
+    []
+  );
+  //will Run this callback once the page has been rendered
   useEffect(() => {
     fetchData();
   }, []);
@@ -15,6 +19,10 @@ const Body = () => {
     const data = await fetch(SWIGGY_API_URL_AGRA);
     const jsonData = await data.json();
     setListOfRestaurants(
+      jsonData?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle
+        ?.restaurants
+    );
+    setFilteredListOfRestaurants(
       jsonData?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle
         ?.restaurants
     );
@@ -29,20 +37,22 @@ const Body = () => {
           className="search-input"
           type="text"
           placeholder="Enter the Restaurant name"
+          value={searchText}
+          onChange={(e) => {
+            const currentSearch = e.currentTarget.value;
+            setSearchText(currentSearch);
+          }}
         ></input>
         <button
           className="search-btn "
           onClick={() => {
-            console.log("clicked");
-            const searchValue = document.querySelector(".search-input").value;
-            const searchResultList = resList.filter((obj) =>
-              obj.info.name.toLowerCase().includes(searchValue)
-            );
-            setListOfRestaurants(searchResultList);
+            const searchResultList = listOfRestaurants.filter((res) => {
+              return res.info.name
+                .toLowerCase()
+                .includes(searchText.toLowerCase());
+            });
+            setFilteredListOfRestaurants(searchResultList);
           }}
-
-          //
-          // <input type="text" className="searchTerm" value={searchText} placeholder="Search for Restaurants and food" onChange={(e)=>{ const currentSearch = e.currentTarget.value.toLowerCase(); setsearchText(currentSearch) }}></input>
         >
           Search
         </button>
@@ -52,10 +62,10 @@ const Body = () => {
         <button
           className="top-res-filter-btn"
           onClick={() => {
-            const topRatedResList = resList.filter(
+            const topRatedResList = listOfRestaurants.filter(
               (obj) => obj.info.avgRating > 4.2
             );
-            setListOfRestaurants(topRatedResList);
+            setFilteredListOfRestaurants(topRatedResList);
           }}
         >
           Top Rated Restaurant 🌟
@@ -64,9 +74,11 @@ const Body = () => {
         <button
           className="veg-res-btn"
           onClick={() => {
-            const vegResList = resList.filter((obj) => "veg" in obj.info);
+            const vegResList = listOfRestaurants.filter(
+              (obj) => "veg" in obj.info
+            );
             // setListOfRestaurants(resList);
-            setListOfRestaurants(vegResList);
+            setFilteredListOfRestaurants(vegResList);
           }}
         >
           Veg Restaurants
@@ -74,14 +86,14 @@ const Body = () => {
         <button
           className="remove-filter-btn"
           onClick={() => {
-            setListOfRestaurants(resList);
+            setFilteredListOfRestaurants(listOfRestaurants);
           }}
         >
           Remove Filters
         </button>
       </div>
       <div className="res-container">
-        {listOfRestaurants.map((ele) => (
+        {filteredListOfRestaurants.map((ele) => (
           <RestaurantCard key={ele.info.id} resObj={ele} />
         ))}
       </div>
