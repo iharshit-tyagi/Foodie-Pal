@@ -29,7 +29,9 @@ const Body = () => {
   };
   //Ternary Operator
   return listOfRestaurants.length === 0 ? (
-    <Shimmer />
+    <div className="shimmer-container">
+      <Shimmer />
+    </div>
   ) : (
     <div className="body-container">
       <div className="search-container">

@@ -1,25 +1,22 @@
 const Shimmer = () => {
   return (
     <div className="shimmer-container">
-      <div className="shimmer-card"></div>
-      <div className="shimmer-card"></div>
-      <div className="shimmer-card"></div>
-      <div className="shimmer-card"></div>
-      <div className="shimmer-card"></div>
-      <div className="shimmer-card"></div>
-      <div className="shimmer-card"></div>
-      <div className="shimmer-card"></div>
-      <div className="shimmer-card"></div>
-      <div className="shimmer-card"></div>
-      <div className="shimmer-card"></div>
-      <div className="shimmer-card"></div>
-      <div className="shimmer-card"></div>
-      <div className="shimmer-card"></div>
-      <div className="shimmer-card"></div>
-      <div className="shimmer-card"></div>
-      <div className="shimmer-card"></div>
-      <div className="shimmer-card"></div>
-      <div className="shimmer-card"></div>
+      <ShimmerCard />
+      <ShimmerCard />
+      <ShimmerCard /> <ShimmerCard /> <ShimmerCard /> <ShimmerCard />{" "}
+      <ShimmerCard /> <ShimmerCard /> <ShimmerCard /> <ShimmerCard />{" "}
+      <ShimmerCard /> <ShimmerCard /> <ShimmerCard /> <ShimmerCard />{" "}
+      <ShimmerCard /> <ShimmerCard /> <ShimmerCard /> <ShimmerCard />{" "}
+      <ShimmerCard /> <ShimmerCard /> <ShimmerCard /> <ShimmerCard />{" "}
+      <ShimmerCard /> <ShimmerCard /> <ShimmerCard /> <ShimmerCard />{" "}
+      <ShimmerCard /> <ShimmerCard /> <ShimmerCard />
+    </div>
+  );
+};
+const ShimmerCard = () => {
+  return (
+    <div className="shimmer-box">
+      <div className="shimmer-animation"></div>
     </div>
   );
 };
