@@ -13,7 +13,11 @@
   color: black;
   font-size: 24px;
 }
-.nav-list-container > ul li:hover {
+.nav-links {
+  text-decoration: none;
+  color: black;
+}
+.nav-links:hover {
   text-decoration: underline;
   color: white;
 }
@@ -22,6 +26,7 @@
 }
 .res-card {
   width: 200px;
+  height: 470px;
   background-color: #f0f0f0;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
   border-radius: 8px;
@@ -146,4 +151,8 @@
   100% {
     background-position: 200% 0;
   }
+}
+.res-menu-link {
+  text-decoration: none;
+  color: black;
 }

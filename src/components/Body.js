@@ -3,6 +3,7 @@ import resList from "../utils/resList";
 import { useEffect, useState } from "react";
 import Shimmer from "../components/Shimmer";
 import { SWIGGY_API_URL_Delhi, SWIGGY_API_URL_AGRA } from "../utils/constants";
+import { Link } from "react-router-dom";
 const Body = () => {
   //State Variable
   const [listOfRestaurants, setListOfRestaurants] = useState([]);
@@ -16,8 +17,8 @@ const Body = () => {
   }, []);
 
   const fetchData = async () => {
-    const data = await fetch(SWIGGY_API_URL_AGRA);
-    // const data = await fetch(SWIGGY_API_URL_Delhi);
+    //  const data = await fetch(SWIGGY_API_URL_AGRA);
+    const data = await fetch(SWIGGY_API_URL_Delhi);
     const jsonData = await data.json();
     setListOfRestaurants(
       jsonData?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle
@@ -97,7 +98,13 @@ const Body = () => {
       </div>
       <div className="res-container">
         {filteredListOfRestaurants.map((ele) => (
-          <RestaurantCard key={ele.info.id} resObj={ele} />
+          <Link
+            to={"/restaurants/" + ele.info.id}
+            className="res-menu-link"
+            key={ele.info.id}
+          >
+            <RestaurantCard resObj={ele} />
+          </Link>
         ))}
       </div>
     </div>

@@ -11,13 +11,20 @@ const Header = () => {
       <div className="nav-list-container">
         <ul>
           <li>
-            <Link to={"/"}> Home</Link>
+            <Link className="nav-links" to={"/"}>
+              Home
+            </Link>
           </li>
           <li>
-            <Link to={"/About"}> About Us</Link>
+            <Link className="nav-links" to={"/About"}>
+              {" "}
+              About Us
+            </Link>
           </li>
           <li>
-            <Link to={"/Cart"}>Cart</Link>
+            <Link className="nav-links" to={"/Cart"}>
+              Cart
+            </Link>
           </li>
           <li>
             <button
