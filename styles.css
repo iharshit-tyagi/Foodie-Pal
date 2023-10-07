@@ -10,6 +10,7 @@
 }
 .nav-list-container > ul li {
   margin: 20px;
+  color: black;
   font-size: 24px;
 }
 .nav-list-container > ul li:hover {
@@ -75,6 +76,7 @@
   border-radius: 5px;
 }
 .search-input {
+  font-size: 18px;
   height: 30px;
   width: 30%;
   margin-left: 10%;
