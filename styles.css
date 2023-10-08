@@ -156,3 +156,25 @@
   text-decoration: none;
   color: black;
 }
+.item-img {
+  height: 150px;
+  width: 150px;
+}
+/* .res-menu-container {
+  margin-left: auto;
+  margin-right: auto;
+} */
+.menu-item-container {
+  display: flex;
+  justify-content: space-between;
+  /* background-color: #b02331; */
+}
+.menu-item-list {
+  list-style-type: none;
+}
+.item-price {
+  font-size: 20px;
+}
+.show-more-btn {
+  margin-left: 60px;
+}

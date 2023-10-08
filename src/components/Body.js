@@ -18,7 +18,7 @@ const Body = () => {
 
   const fetchData = async () => {
     //  const data = await fetch(SWIGGY_API_URL_AGRA);
-    const data = await fetch(SWIGGY_API_URL_Delhi);
+    const data = await fetch(SWIGGY_API_URL_AGRA);
     const jsonData = await data.json();
     setListOfRestaurants(
       jsonData?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle
