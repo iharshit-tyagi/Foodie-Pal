@@ -1,34 +1,21 @@
 import RestaurantCard from "./RestaurantCard";
-import resList from "../utils/resList";
-import { useEffect, useState } from "react";
+import useRestaurantList from "../utils/useRestaurantList";
+import { useState } from "react";
 import Shimmer from "../components/Shimmer";
-import { SWIGGY_API_URL_Delhi, SWIGGY_API_URL_AGRA } from "../utils/constants";
+
 import { Link } from "react-router-dom";
+import useOnlineStatus from "../utils/useOnlineStatus";
 const Body = () => {
   //State Variable
-  const [listOfRestaurants, setListOfRestaurants] = useState([]);
-  const [searchText, setSearchText] = useState("");
-  const [filteredListOfRestaurants, setFilteredListOfRestaurants] = useState(
-    []
-  );
-  //will Run this callback once the page has been rendered
-  useEffect(() => {
-    fetchData();
-  }, []);
 
-  const fetchData = async () => {
-    //  const data = await fetch(SWIGGY_API_URL_AGRA);
-    const data = await fetch(SWIGGY_API_URL_AGRA);
-    const jsonData = await data.json();
-    setListOfRestaurants(
-      jsonData?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle
-        ?.restaurants
+  const [searchText, setSearchText] = useState("");
+  const [listOfRestaurants, filteredListOfRestaurants] = useRestaurantList();
+
+  const onlineStatus = useOnlineStatus();
+  if (onlineStatus === false)
+    return (
+      <h1> OOPs! You are offline , Please Check Youour Internet Connection</h1>
     );
-    setFilteredListOfRestaurants(
-      jsonData?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle
-        ?.restaurants
-    );
-  };
   //Ternary Operator
   return listOfRestaurants.length === 0 ? (
     <div className="shimmer-container">
