@@ -12,8 +12,8 @@ const useRestaurantList = () => {
   }, []);
 
   const fetchData = async () => {
-    //  const data = await fetch(SWIGGY_API_URL_AGRA);
-    const data = await fetch(SWIGGY_API_URL_Delhi);
+    const data = await fetch(SWIGGY_API_URL_AGRA);
+    // const data = await fetch(SWIGGY_API_URL_Delhi);
     const jsonData = await data.json();
     setListOfRestaurants(
       jsonData?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle
@@ -24,7 +24,9 @@ const useRestaurantList = () => {
         ?.restaurants
     );
   };
-
-  return [listOfRestaurants, filteredListOfRestaurants];
+  const updateListOfRestaurant = (newValue) => {
+    setFilteredListOfRestaurants(newValue);
+  };
+  return [listOfRestaurants, filteredListOfRestaurants, updateListOfRestaurant];
 };
 export default useRestaurantList;

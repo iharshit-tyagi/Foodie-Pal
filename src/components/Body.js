@@ -9,7 +9,8 @@ const Body = () => {
   //State Variable
 
   const [searchText, setSearchText] = useState("");
-  const [listOfRestaurants, filteredListOfRestaurants] = useRestaurantList();
+  const [listOfRestaurants, filteredListOfRestaurants, updateListOfRestaurant] =
+    useRestaurantList();
 
   const onlineStatus = useOnlineStatus();
   if (onlineStatus === false)
@@ -18,14 +19,14 @@ const Body = () => {
     );
   //Ternary Operator
   return listOfRestaurants.length === 0 ? (
-    <div className="shimmer-container">
+    <div className="">
       <Shimmer />
     </div>
   ) : (
-    <div className="body-container">
-      <div className="search-container">
+    <div className="">
+      <div className="m-4 p-4">
         <input
-          className="search-input"
+          className=" m-3 px-4 py-1 border border-solid border-black"
           type="text"
           placeholder="Enter the Restaurant name"
           value={searchText}
@@ -35,41 +36,41 @@ const Body = () => {
           }}
         ></input>
         <button
-          className="search-btn "
+          className=" bg-slate-300 px-4 py-2 m-4 rounded-lg"
           onClick={() => {
             const searchResultList = listOfRestaurants.filter((res) => {
               return res.info.name
                 .toLowerCase()
                 .includes(searchText.toLowerCase());
             });
-            setFilteredListOfRestaurants(searchResultList);
+            // setFilteredListOfRestaurants(searchResultList);
+            updateListOfRestaurant(searchResultList);
           }}
         >
           Search
         </button>
-      </div>
 
-      <div className="filter-container">
         <button
-          className="top-res-filter-btn"
+          className=" bg-slate-300 px-4 py-2 m-4 rounded-full"
           onClick={() => {
             const topRatedResList = listOfRestaurants.filter(
               (obj) => obj.info.avgRating > 4.2
             );
-            setFilteredListOfRestaurants(topRatedResList);
+            // setFilteredListOfRestaurants(topRatedResList);
+            updateListOfRestaurant(topRatedResList);
           }}
         >
           Top Rated Restaurant 🌟
         </button>
 
         <button
-          className="veg-res-btn"
+          className=" bg-green-400 px-4 py-2 m-4 rounded-full"
           onClick={() => {
             const vegResList = listOfRestaurants.filter(
               (obj) => "veg" in obj.info
             );
-            // setListOfRestaurants(resList);
-            setFilteredListOfRestaurants(vegResList);
+            updateListOfRestaurant(vegResList);
+            // setFilteredListOfRestaurants(vegResList);
           }}
         >
           Veg Restaurants
@@ -77,13 +78,14 @@ const Body = () => {
         <button
           className="remove-filter-btn"
           onClick={() => {
-            setFilteredListOfRestaurants(listOfRestaurants);
+            // setFilteredListOfRestaurants(listOfRestaurants);
+            updateListOfRestaurant(listOfRestaurants);
           }}
         >
           Remove Filters
         </button>
       </div>
-      <div className="res-container">
+      <div className="flex flex-wrap ">
         {filteredListOfRestaurants.map((ele) => (
           <Link
             to={"/restaurants/" + ele.info.id}
