@@ -2,25 +2,33 @@ import useRestaurantMenu from "../utils/useRestaurantMenu";
 import { useParams } from "react-router-dom";
 import Shimmer from "./Shimmer";
 import RestaurantMenuItem from "./RestaurantMenuItem";
+import ResMenuCategories from "./ResMenuCategories";
+import { useState } from "react";
 
 const RestaurantInfo = () => {
-  // const [resInfo, setresInfo] = useState(null);
-
   const params = useParams();
   const { resID } = params;
   const resInfo = useRestaurantMenu(resID);
-
+  const [showItems, setShowItems] = useState(false);
   if (resInfo === null) {
     return <Shimmer />;
   }
 
   const { name, areaName, cuisines, costForTwoMessage, locality, avgRating } =
     resInfo.cards[0]?.card?.card?.info;
-  const { itemCards, title } =
-    // resInfo?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR;
-    resInfo?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card?.card;
-  //Below line works fine with Punjabi Angithi
-  // resInfo?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card?.card ?.categories[0];
+  const { itemCards } =
+    resInfo?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card?.card;
+  const ResCard = resInfo?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards;
+  //To Iterate through all categories
+  const categories = ResCard.filter(
+    (c) =>
+      c?.card?.card?.["@type"] ===
+      "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory"
+  );
+  // console.log(categories);
+  const handleClick = () => {
+    setShowItems(!showItems);
+  };
   return (
     <div>
       {/* Restaurant Details Container */}
@@ -30,28 +38,22 @@ const RestaurantInfo = () => {
           {areaName} , {locality}
         </p>
         <p>Cuisines : {cuisines.join(",")}</p>
-        <h4>
-          {costForTwoMessage} - {avgRating}⭐
-        </h4>
+        <h4>{costForTwoMessage}</h4>
       </div>
-
-      {/* For the Items in the Menu - 
-      Generating Each Item in a category*/}
       <div>
-        <ul className=" ">
-          <li>
-            <h2 className="font-bold">{title}</h2>
-          </li>
-
-          {itemCards.map((itemCard) => {
-            return (
-              <RestaurantMenuItem
-                key={itemCard?.card?.info.id}
-                itemDetails={itemCard}
-              />
-            );
-          })}
-        </ul>
+        {categories.map((cat) => {
+          return (
+            <div>
+              <div
+                onClick={handleClick}
+                className="flex justify-between m-5 cursor-pointer w-6/12 mx-auto my-5 bg-gray-50 rounded-sm shadow-lg p-4 "
+              >
+                {cat?.card?.card.title} <span>🔽</span>
+              </div>
+              {showItems && <ResMenuCategories category={cat} setShowItems />}
+            </div>
+          );
+        })}
       </div>
     </div>
   );
