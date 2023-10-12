@@ -15,7 +15,11 @@ const Body = () => {
   const onlineStatus = useOnlineStatus();
   if (onlineStatus === false)
     return (
-      <h1> OOPs! You are offline , Please Check Youour Internet Connection</h1>
+      <div className="flex justify-center">
+        <h1 className="">
+          OOPs! You are offline , Please Check Youour Internet Connection
+        </h1>
+      </div>
     );
   //Ternary Operator
   return listOfRestaurants.length === 0 ? (
@@ -23,8 +27,8 @@ const Body = () => {
       <Shimmer />
     </div>
   ) : (
-    <div className="">
-      <div className="m-4 p-4">
+    <div className="relative">
+      <div className="m-4 p-4  ">
         <input
           className=" m-3 px-4 py-1 border border-solid border-black"
           type="text"
@@ -85,7 +89,7 @@ const Body = () => {
           Remove Filters
         </button>
       </div>
-      <div className="flex flex-wrap ">
+      <div className="flex flex-wrap center ">
         {filteredListOfRestaurants.map((ele) => (
           <Link
             to={"/restaurants/" + ele.info.id}

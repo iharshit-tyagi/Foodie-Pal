@@ -22,7 +22,7 @@ const RestaurantInfo = () => {
   //Below line works fine with Punjabi Angithi
   // resInfo?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card?.card ?.categories[0];
   return (
-    <div className="res-menu-container">
+    <div>
       {/* Restaurant Details Container */}
       <div>
         <h3>{name}</h3>
@@ -38,9 +38,9 @@ const RestaurantInfo = () => {
       {/* For the Items in the Menu - 
       Generating Each Item in a category*/}
       <div>
-        <ul className="menu-item-list">
+        <ul className=" ">
           <li>
-            <h2>{title}</h2>
+            <h2 className="font-bold">{title}</h2>
           </li>
 
           {itemCards.map((itemCard) => {

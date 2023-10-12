@@ -5,14 +5,14 @@ const RestaurantMenuItem = (props) => {
   const { name, imageId, price, description, id } = itemDetails?.card?.info;
   return (
     <li>
-      <div className="menu-item-container">
+      <div className="flex justify-between mx-7 my-9 border border-solid border-black bg-orange-50">
         <div className="item-details-container">
-          <h2>{name}</h2>
+          <h2 className="font-bold">{name}</h2>
           <p className="item-price"> Rs.{price / 100}</p>
-          <p>{description}</p>
+          <p> {description}</p>
         </div>
         <div className="item-img-container">
-          <img className="item-img" src={MENU_ITEM_IMG_URL + imageId} />
+          <img className="w-40" src={MENU_ITEM_IMG_URL + imageId} />
         </div>
       </div>
     </li>
