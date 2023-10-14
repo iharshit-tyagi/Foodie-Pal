@@ -2,13 +2,14 @@ import { useState } from "react";
 import { LOGO_URL } from "../utils/constants";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
+import logo from "../utils/images/Foodie Pal Logo.png";
 const Header = () => {
   const [loginBtnValue, setLoginBtnValue] = useState("Login");
   const onlineStatus = useOnlineStatus();
   return (
     <div className="flex justify-between bg-orange-200">
       <div className="logo-container">
-        <img className="w-50 " src={LOGO_URL} />
+        <img className="w-48 h-44" src={logo} />
       </div>
       <div className="flex items-center ">
         <ul className="flex m-4 p-4 ">
