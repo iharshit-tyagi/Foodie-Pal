@@ -1,23 +1,12 @@
 const Shimmer = () => {
-  return (
-    <div className="shimmer-container">
-      <ShimmerCard />
-      <ShimmerCard />
-      <ShimmerCard /> <ShimmerCard /> <ShimmerCard /> <ShimmerCard />{" "}
-      <ShimmerCard /> <ShimmerCard /> <ShimmerCard /> <ShimmerCard />{" "}
-      <ShimmerCard /> <ShimmerCard /> <ShimmerCard /> <ShimmerCard />{" "}
-      <ShimmerCard /> <ShimmerCard /> <ShimmerCard /> <ShimmerCard />{" "}
-      <ShimmerCard /> <ShimmerCard /> <ShimmerCard /> <ShimmerCard />{" "}
-      <ShimmerCard /> <ShimmerCard /> <ShimmerCard /> <ShimmerCard />{" "}
-      <ShimmerCard /> <ShimmerCard /> <ShimmerCard />
-    </div>
-  );
+  return <div className="shimmer-container">{/* <ShimmerCard /> */}</div>;
 };
-const ShimmerCard = () => {
-  return (
-    <div className="shimmer-box">
-      <div className="shimmer-animation"></div>
-    </div>
-  );
-};
+// const ShimmerCard = () => {
+//   return (
+//     // <button type="button" class="bg-indigo-500 ..." disabled>
+//     //   <svg class="animate-spin h-5 w-5 mr-3 ..." viewBox="0 0 24 24"></svg>
+//     //   Processing...
+//     // </button>
+//   );
+// };
 export default Shimmer;

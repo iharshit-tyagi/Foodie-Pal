@@ -9,13 +9,20 @@ const RestaurantInfo = () => {
   const params = useParams();
   const { resID } = params;
   const resInfo = useRestaurantMenu(resID);
-  const [showItems, setShowItems] = useState(false);
+
   if (resInfo === null) {
     return <Shimmer />;
   }
-
-  const { name, areaName, cuisines, costForTwoMessage, locality, avgRating } =
-    resInfo.cards[0]?.card?.card?.info;
+  console.log(resInfo);
+  const {
+    name,
+    areaName,
+    cuisines,
+    costForTwoMessage,
+    locality,
+    avgRating,
+    totalRatingsString,
+  } = resInfo.cards[0]?.card?.card?.info;
   const { itemCards } =
     resInfo?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card?.card;
   const ResCard = resInfo?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards;
@@ -26,33 +33,29 @@ const RestaurantInfo = () => {
       "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory"
   );
   // console.log(categories);
-  const handleClick = () => {
-    setShowItems(!showItems);
-  };
+
   return (
     <div>
       {/* Restaurant Details Container */}
-      <div>
-        <h3>{name}</h3>
-        <p>
-          {areaName} , {locality}
-        </p>
-        <p>Cuisines : {cuisines.join(",")}</p>
-        <h4>{costForTwoMessage}</h4>
+      <div className="text-center w-8/12 mx-auto my-5 bg-orange-100 flex justify-around py-3 rounded-lg">
+        {/* Restaurant details Div */}
+        <div className="text-left">
+          <h3 className="font-semibold text-xl line-clamp-6">{name}</h3>
+          <p className="font-semibold">Cuisines : {cuisines.join(", ")}</p>
+          <h4>{costForTwoMessage}</h4>
+        </div>
+        {/* Restaurant Ratings Div */}
+        <div className=" my-auto  bg-blue-50 rounded-lg shadow-lg  p-2">
+          <span className=" text-black text-xl font-semibold  border-b-2 border-dashed border-gray-400">
+            {avgRating + "⭐"}
+          </span>
+          <div>{totalRatingsString}</div>
+        </div>
       </div>
+      {/* Restaurant Menu */}
       <div>
         {categories.map((cat) => {
-          return (
-            <div>
-              <div
-                onClick={handleClick}
-                className="flex justify-between m-5 cursor-pointer w-6/12 mx-auto my-5 bg-gray-50 rounded-sm shadow-lg p-4 "
-              >
-                {cat?.card?.card.title} <span>🔽</span>
-              </div>
-              {showItems && <ResMenuCategories category={cat} setShowItems />}
-            </div>
-          );
+          return <div>{<ResMenuCategories category={cat} />}</div>;
         })}
       </div>
     </div>

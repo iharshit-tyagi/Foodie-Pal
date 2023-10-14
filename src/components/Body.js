@@ -27,7 +27,7 @@ const Body = () => {
       <Shimmer />
     </div>
   ) : (
-    <div className="relative">
+    <div className="">
       <div className="m-4 p-4  ">
         <input
           className=" m-3 px-4 py-1 border border-solid border-black"
@@ -89,7 +89,7 @@ const Body = () => {
           Remove Filters
         </button>
       </div>
-      <div className="flex flex-wrap center ">
+      <div className="flex flex-wrap justify-center gap-4">
         {filteredListOfRestaurants.map((ele) => (
           <Link
             to={"/restaurants/" + ele.info.id}
