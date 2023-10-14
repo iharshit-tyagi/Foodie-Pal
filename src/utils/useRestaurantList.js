@@ -1,4 +1,8 @@
-import { SWIGGY_API_URL_Delhi, SWIGGY_API_URL_AGRA } from "../utils/constants";
+import {
+  SWIGGY_API_URL_Delhi,
+  SWIGGY_API_URL_AGRA,
+  SWIGGY_API_URL_PUNE,
+} from "../utils/constants";
 import { useState, useEffect } from "react";
 const useRestaurantList = () => {
   const [listOfRestaurants, setListOfRestaurants] = useState([]);
@@ -12,8 +16,9 @@ const useRestaurantList = () => {
   }, []);
 
   const fetchData = async () => {
-    const data = await fetch(SWIGGY_API_URL_AGRA);
+    // const data = await fetch(SWIGGY_API_URL_AGRA);
     // const data = await fetch(SWIGGY_API_URL_Delhi);
+    const data = await fetch(SWIGGY_API_URL_PUNE);
     const jsonData = await data.json();
     setListOfRestaurants(
       jsonData?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle

@@ -4,7 +4,7 @@ const RestaurantCard = (props) => {
   const { name, cuisines, costForTwo, cloudinaryImageId, avgRating } =
     resObj?.info;
   return (
-    <div className="shadow-xl	 m-4 p-4 w-56 h-96 bg-gray-100 hover:bg-white cursor-pointer box-border hover:shadow-blue-200">
+    <div className="shadow-xl	 m-4 p-3 w-56 h-96 bg-gray-100 hover:bg-white cursor-pointer box-border hover:shadow-blue-200">
       {/* <div className="res-logo-container"> */}
       <img
         className="rounded-tl-lg h-1/2 w-5/6 mx-auto"
@@ -20,5 +20,4 @@ const RestaurantCard = (props) => {
     </div>
   );
 };
-
 export default RestaurantCard;

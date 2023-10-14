@@ -6,7 +6,7 @@ const Header = () => {
   const [loginBtnValue, setLoginBtnValue] = useState("Login");
   const onlineStatus = useOnlineStatus();
   return (
-    <div className="flex justify-between bg-orange-100">
+    <div className="flex justify-between bg-gray-200">
       <div className="logo-container">
         <img className="w-48 h-44" src={logo} />
       </div>
@@ -31,15 +31,15 @@ const Header = () => {
             </Link>
           </li>
           <li className="px-4 text-xl font-bold">
-            <button
-              className="login-btn"
-              onClick={() => {
-                if (loginBtnValue === "Login") setLoginBtnValue("Logout");
-                else setLoginBtnValue("Login");
-              }}
-            >
-              {loginBtnValue}
-            </button>
+              <button
+                className="login-btn"
+                onClick={() => {
+                  if (loginBtnValue === "Login") setLoginBtnValue("Logout");
+                  else setLoginBtnValue("Login");
+                }}
+              >
+                {loginBtnValue}
+              </button>
           </li>
         </ul>
       </div>

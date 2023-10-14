@@ -21,6 +21,7 @@ const Body = () => {
         </h1>
       </div>
     );
+  console.log(filteredListOfRestaurants);
   //Ternary Operator
   return listOfRestaurants.length === 0 ? (
     <div className="">
@@ -28,9 +29,9 @@ const Body = () => {
     </div>
   ) : (
     <div className="">
-      <div className="m-4 p-4  ">
+      <div className="m-4 p-4 flex  ">
         <input
-          className=" m-3 px-4 py-1 border border-solid border-black"
+          className=" m-3 px-4 py-1 border border-solid border-black flex-1"
           type="text"
           placeholder="Enter the Restaurant name"
           value={searchText}
@@ -40,7 +41,7 @@ const Body = () => {
           }}
         ></input>
         <button
-          className=" bg-slate-300 px-4 py-2 m-4 rounded-lg"
+          className=" bg-slate-300 px-4 py-2 m-4 rounded-lg "
           onClick={() => {
             const searchResultList = listOfRestaurants.filter((res) => {
               return res.info.name
@@ -89,7 +90,7 @@ const Body = () => {
           Remove Filters
         </button>
       </div>
-      <div className="flex flex-wrap justify-center gap-4">
+      <div className="flex flex-wrap px-24 gap-4">
         {filteredListOfRestaurants.map((ele) => (
           <Link
             to={"/restaurants/" + ele.info.id}

@@ -32,12 +32,11 @@ const RestaurantInfo = () => {
       c?.card?.card?.["@type"] ===
       "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory"
   );
-  // console.log(categories);
 
   return (
     <div>
       {/* Restaurant Details Container */}
-      <div className="text-center w-8/12 mx-auto my-5 bg-orange-100 flex justify-around py-3 rounded-lg">
+      <div className="text-center w-8/12 mx-auto my-5 bg-white flex justify-around py-3 rounded-lg border border-solid border-gray-300 shadow-md">
         {/* Restaurant details Div */}
         <div className="text-left">
           <h3 className="font-semibold text-xl line-clamp-6">{name}</h3>
@@ -55,7 +54,11 @@ const RestaurantInfo = () => {
       {/* Restaurant Menu */}
       <div>
         {categories.map((cat) => {
-          return <div>{<ResMenuCategories category={cat} />}</div>;
+          return (
+            <div key={cat?.card?.card?.title}>
+              {<ResMenuCategories category={cat} />}
+            </div>
+          );
         })}
       </div>
     </div>
