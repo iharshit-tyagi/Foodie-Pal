@@ -7,23 +7,26 @@ const RestaurantMenuItem = (props) => {
   return (
     <ul>
       <li>
-        <div className="flex justify-between  cursor-pointer w-8/12 mx-auto  bg-gray-100 rounded-sm shadow-lg p-4 border-b-2 border-x-gray-100 hover:shadow-blue-200 ">
-          <div className="item-details-container">
+        <div className="flex justify-around  cursor-pointer w-8/12 mx-auto  bg-gray-100 rounded-sm shadow-lg p-4 border-b-2 border-x-gray-100 hover:shadow-blue-200 ">
+          <div className="w-9/12">
             <h2 className="font-bold">{name}</h2>
             <p className="font-semibold">
-              {" "}
-              Rs.{Math.ceil(price / 100) || Math.ceil(defaultPrice / 100)}
+              ₹ {Math.ceil(price / 100) || Math.ceil(defaultPrice / 100)}
             </p>
             <p className="text-left text-sm "> {description}</p>
           </div>
           {imageId && (
-            <div className="item-img-container">
-              <button onClick={() => console.log("clicked")}>
-                <img
-                  className="h-24 w-24 mx-3"
-                  src={imageId && MENU_ITEM_IMG_URL + imageId}
-                />
-              </button>
+            <div className="relative">
+              <div className="absolute bg-black text-white shadow-lg rounded-sm bottom-0 left-1/4 ">
+                <button className="px-2" onClick={() => console.log("clicked")}>
+                  Add +{" "}
+                </button>
+              </div>
+
+              <img
+                className="h-24 w-28"
+                src={imageId && MENU_ITEM_IMG_URL + imageId}
+              />
             </div>
           )}
         </div>
