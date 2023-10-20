@@ -3,7 +3,7 @@ const ResMenuCategory = (props) => {
   const { category, showItems, setShowIndex } = props;
   const { itemCards } = category?.card?.card;
   const handleClick = () => {
-    setShowIndex();
+    if (!showItems) setShowIndex();
   };
   return (
     <div>
