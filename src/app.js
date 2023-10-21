@@ -11,7 +11,7 @@ import { Provider } from "react-redux";
 import appStore from "./utils/appStore";
 const AppLayout = () => {
   return (
-    <Provider store={appStorep}>
+    <Provider store={appStore}>
       <div>
         <Header />
         <Outlet />
@@ -34,7 +34,7 @@ const appRouter = createBrowserRouter([
         element: <About />,
       },
       {
-        path: "/cart",
+        path: "/Cart",
         element: <Cart />,
       },
       {

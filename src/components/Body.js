@@ -21,7 +21,7 @@ const Body = () => {
         </h1>
       </div>
     );
-  console.log(filteredListOfRestaurants);
+
   //Ternary Operator
   return listOfRestaurants.length === 0 ? (
     <div className="">

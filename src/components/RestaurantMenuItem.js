@@ -1,9 +1,14 @@
+import { useDispatch } from "react-redux";
 import { MENU_ITEM_IMG_URL } from "../utils/constants";
+import { addItem } from "../utils/cartSlice";
 const RestaurantMenuItem = (props) => {
   const { itemDetails } = props;
   const { name, imageId, price, description, id, defaultPrice } =
     itemDetails?.info;
-  console.log(itemDetails);
+  const dispatch = useDispatch();
+  const handleAddItem = (itemDetails) => {
+    dispatch(addItem(itemDetails));
+  };
   return (
     <ul>
       <li>
@@ -18,7 +23,10 @@ const RestaurantMenuItem = (props) => {
           {imageId && (
             <div className="relative">
               <div className="absolute bg-black text-white shadow-lg rounded-sm bottom-0 left-1/4 ">
-                <button className="px-2" onClick={() => console.log("clicked")}>
+                <button
+                  className="px-2"
+                  onClick={() => handleAddItem(itemDetails)}
+                >
                   Add +{" "}
                 </button>
               </div>

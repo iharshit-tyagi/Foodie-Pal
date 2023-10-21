@@ -2,9 +2,14 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
 import logo from "../utils/images/Foodie Pal Logo.png";
+import { useSelector } from "react-redux";
 const Header = () => {
   const [loginBtnValue, setLoginBtnValue] = useState("Login");
   const onlineStatus = useOnlineStatus();
+
+  //Subscribing to store
+  const cartItems = useSelector((store) => store.cart.items);
+
   return (
     <div className="flex justify-between bg-gray-200">
       <div className="logo-container">
@@ -27,19 +32,19 @@ const Header = () => {
           </li>
           <li className="px-4 text-xl font-bold">
             <Link className="nav-links" to={"/Cart"}>
-              Cart
+              Cart ({cartItems.length})
             </Link>
           </li>
           <li className="px-4 text-xl font-bold">
-              <button
-                className="login-btn"
-                onClick={() => {
-                  if (loginBtnValue === "Login") setLoginBtnValue("Logout");
-                  else setLoginBtnValue("Login");
-                }}
-              >
-                {loginBtnValue}
-              </button>
+            <button
+              className="login-btn"
+              onClick={() => {
+                if (loginBtnValue === "Login") setLoginBtnValue("Logout");
+                else setLoginBtnValue("Login");
+              }}
+            >
+              {loginBtnValue}
+            </button>
           </li>
         </ul>
       </div>

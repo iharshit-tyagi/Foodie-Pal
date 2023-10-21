@@ -18,10 +18,10 @@ const ResMenuCategory = (props) => {
         itemCards.map((itemInfo) => {
           return (
             <RestaurantMenuItem
-              key={itemInfo.card.id}
+              key={itemInfo.card.info.id}
               itemDetails={itemInfo.card}
             />
-          );
+          ); //Temp
         })}
     </div>
   );
