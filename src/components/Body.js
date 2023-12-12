@@ -90,7 +90,7 @@ const Body = () => {
           Remove Filters
         </button>
       </div>
-      <div className="flex flex-wrap px-24 gap-4">
+      <div className=" grid grid-cols-4 px-9 gap-4">
         {filteredListOfRestaurants.map((ele) => (
           <Link
             to={"/restaurants/" + ele.info.id}
