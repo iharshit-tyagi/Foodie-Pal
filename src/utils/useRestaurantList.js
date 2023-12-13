@@ -5,7 +5,11 @@ import {
 } from "../utils/constants";
 import { useDispatch, useSelector } from "react-redux";
 import { useState, useEffect } from "react";
-import { addBestOffers, addItemCategories } from "./swiggyDataSlice";
+import {
+  addBestOffers,
+  addItemCategories,
+  addTopRestaurantChains,
+} from "./swiggyDataSlice";
 const useRestaurantList = () => {
   const dispatch = useDispatch();
   const bestOffers = useSelector((store) => store.swiggyData.bestOffers);
@@ -45,6 +49,12 @@ const useRestaurantList = () => {
     dispatch(
       addItemCategories(
         jsonData?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.info
+      )
+    );
+    dispatch(
+      addTopRestaurantChains(
+        jsonData?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle
+          ?.restaurants
       )
     );
   };

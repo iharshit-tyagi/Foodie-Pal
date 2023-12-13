@@ -7,6 +7,7 @@ import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
 import BestOffersContainer from "./BestOffersContainer";
 import ItemCategoriesContainer from "./ItemCategoriesContainer";
+import { TopResChains } from "./TopResChains";
 const Body = () => {
   //State Variable
 
@@ -40,6 +41,9 @@ const Body = () => {
       </div>
       <div className="mx-auto">
         <ItemCategoriesContainer />
+      </div>
+      <div className="mx-auto">
+        <TopResChains />
       </div>
       <div className="">
         <div className="m-4 p-4 flex  ">
