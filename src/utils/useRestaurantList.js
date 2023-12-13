@@ -9,6 +9,7 @@ import {
   addBestOffers,
   addItemCategories,
   addTopRestaurantChains,
+  addWholeData,
 } from "./swiggyDataSlice";
 const useRestaurantList = () => {
   const dispatch = useDispatch();
@@ -57,11 +58,12 @@ const useRestaurantList = () => {
           ?.restaurants
       )
     );
+    dispatch(addWholeData(jsonData?.data));
   };
   const updateListOfRestaurant = (newValue) => {
     setFilteredListOfRestaurants(newValue);
   };
-
+  //card 3 had heading for this/*  Card 4 has filters   */ /** Card 5 Has List of restaurants */
   return [listOfRestaurants, filteredListOfRestaurants, updateListOfRestaurant];
 };
 export default useRestaurantList;

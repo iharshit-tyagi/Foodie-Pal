@@ -3,6 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 const swiggyDataSlice = createSlice({
   name: "swiggyData",
   initialState: {
+    wholeData: null,
     restaurantList: [],
     filteredListOfRestaurant: [],
     bestOffers: null,
@@ -22,6 +23,9 @@ const swiggyDataSlice = createSlice({
     addTopRestaurantChains: (state, action) => {
       state.topRestaurantChains = action.payload;
     },
+    addWholeData: (state, action) => {
+      state.wholeData = action.payload;
+    },
   },
 });
 export const {
@@ -29,5 +33,6 @@ export const {
   addItemCategories,
   addRestaurants,
   addTopRestaurantChains,
+  addWholeData,
 } = swiggyDataSlice.actions;
 export default swiggyDataSlice.reducer;

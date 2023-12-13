@@ -8,6 +8,7 @@ import useOnlineStatus from "../utils/useOnlineStatus";
 import BestOffersContainer from "./BestOffersContainer";
 import ItemCategoriesContainer from "./ItemCategoriesContainer";
 import { TopResChains } from "./TopResChains";
+
 const Body = () => {
   //State Variable
 
@@ -46,6 +47,7 @@ const Body = () => {
         <TopResChains />
       </div>
       <div className="">
+        {/* //Filters and Search Div */}
         <div className="m-4 p-4 flex  ">
           <input
             className=" m-3 px-4 py-1 border border-solid border-black flex-1"
@@ -107,6 +109,7 @@ const Body = () => {
             Remove Filters
           </button>
         </div>
+
         <div className=" grid grid-cols-4 px-9 gap-4">
           {filteredListOfRestaurants.map((ele) => (
             <Link
