@@ -109,8 +109,10 @@ const Body = () => {
             Remove Filters
           </button>
         </div>
-
-        <div className=" grid grid-cols-4 px-9 gap-4">
+        <h2 className="px-9 text-2xl font-bold ">
+          Restaurants with Online Food Delivery
+        </h2>
+        <div className="mx-auto w-4/5 grid grid-cols-3 gap-2  ">
           {filteredListOfRestaurants.map((ele) => (
             <Link
               to={"/restaurants/" + ele.info.id}
