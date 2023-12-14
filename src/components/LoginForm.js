@@ -11,7 +11,7 @@ function LoginForm() {
   const handleSubmit = (e) => {
     e.preventDefault();
     // Add your authentication logic here.
-    console.log("Submitted data:", formData);
+    // console.log("Submitted data:", formData);
   };
 
   return (
