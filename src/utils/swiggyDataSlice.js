@@ -9,6 +9,7 @@ const swiggyDataSlice = createSlice({
     bestOffers: null,
     itemCategories: null,
     topRestaurantChains: null,
+    resListByItem: [],
   },
   reducers: {
     addBestOffers: (state, action) => {
@@ -26,6 +27,12 @@ const swiggyDataSlice = createSlice({
     addWholeData: (state, action) => {
       state.wholeData = action.payload;
     },
+    addresListByItem: (state, action) => {
+      state.resListByItem = action.payload;
+    },
+    clearResListByItem: (state, action) => {
+      state.resListByItem = [];
+    },
   },
 });
 export const {
@@ -34,5 +41,7 @@ export const {
   addRestaurants,
   addTopRestaurantChains,
   addWholeData,
+  addresListByItem,
+  clearResListByItem,
 } = swiggyDataSlice.actions;
 export default swiggyDataSlice.reducer;

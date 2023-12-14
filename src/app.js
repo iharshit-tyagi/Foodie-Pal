@@ -10,6 +10,7 @@ import RestaurantInfo from "./components/RestaurantInfo";
 import LoginForm from "./components/LoginForm";
 import { Provider } from "react-redux";
 import appStore from "./utils/appStore";
+import ResContainerByItem from "./components/ResContainerByItem";
 const AppLayout = () => {
   return (
     <Provider store={appStore}>
@@ -45,6 +46,10 @@ const appRouter = createBrowserRouter([
       {
         path: "/restaurants/:resID",
         element: <RestaurantInfo />,
+      },
+      {
+        path: "/tags/:collectionid/:tags",
+        element: <ResContainerByItem />,
       },
     ],
   },

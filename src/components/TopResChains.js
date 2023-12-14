@@ -16,15 +16,18 @@ export const TopResChains = () => {
   const topRestChains = useSelector(
     (store) => store.swiggyData.topRestaurantChains
   );
-  console.log(topRestChains);
+  // console.log(topRestChains);
   return (
     <div className="w-9/12 mx-auto mt-6 shadow-md">
       <h2 className="text-2xl font-semibold mb-3">Top Restaurant Chains</h2>
       <Slider {...settings}>
         {topRestChains.map((ele) => {
           return (
-            <div className="hover:scale-90 scale-95 transition-transform">
-              <RestaurantCard key={ele.info.id} resObj={ele} />
+            <div
+              key={ele.info.id}
+              className="hover:scale-90 scale-95 transition-transform"
+            >
+              <RestaurantCard resObj={ele} />
             </div>
           );
         })}
