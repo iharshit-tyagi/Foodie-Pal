@@ -23,9 +23,9 @@ const Body = () => {
   const onlineStatus = useOnlineStatus();
   if (onlineStatus === false)
     return (
-      <div className="flex justify-center">
+      <div className="flex justify-center items-center">
         <h1 className="">
-          OOPs! You are offline , Please Check Youour Internet Connection
+          OOPs! You are offline , Please Check Your Internet Connection
         </h1>
       </div>
     );

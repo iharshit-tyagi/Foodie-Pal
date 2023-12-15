@@ -5,6 +5,7 @@ import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
 import { RES_LOGO_CDN } from "../utils/constants";
 import RestaurantCard from "./RestaurantCard";
+import { Link } from "react-router-dom";
 export const TopResChains = () => {
   const settings = {
     // dots: true,
@@ -23,12 +24,15 @@ export const TopResChains = () => {
       <Slider {...settings}>
         {topRestChains.map((ele) => {
           return (
-            <div
+            <Link
+              to={"/restaurants/" + ele.info.id}
+              className="res-menu-link"
               key={ele.info.id}
-              className="hover:scale-90 scale-95 transition-transform"
             >
-              <RestaurantCard resObj={ele} />
-            </div>
+              <div className="hover:scale-90 scale-95 transition-transform">
+                <RestaurantCard resObj={ele} />
+              </div>
+            </Link>
           );
         })}
       </Slider>
