@@ -4,7 +4,7 @@ import { addresListByItem } from "./swiggyDataSlice";
 const useResListByItem = (collectionid, tags) => {
   const dispatch = useDispatch();
   const Res_By_Item_API =
-    "https://corsproxy.io/?https://www.swiggy.com/dapi/restaurants/list/v5?lat=28.7040592&lng=77.10249019999999&collection=" +
+    "https://www.swiggy.com/dapi/restaurants/list/v5?lat=28.7040592&lng=77.10249019999999&collection=" +
     collectionid +
     "&tags==" +
     tags +

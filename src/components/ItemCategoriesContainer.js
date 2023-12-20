@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import { RES_LOGO_CDN } from "../utils/constants";
 
@@ -7,16 +7,23 @@ import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
 import { Link } from "react-router-dom";
 const ItemCategoriesContainer = () => {
+  const [isSliding, setIsSliding] = useState(false);
   const itemCategories = useSelector(
     (store) => store.swiggyData.itemCategories
   );
-
+  const handleCardClick = (e) => {
+    if (isSliding) {
+      e.preventDefault();
+    }
+  };
   const settings = {
     // dots: true,
     infinite: true,
     speed: 500,
     slidesToShow: 7,
     slidesToScroll: 3,
+    beforeChange: () => setIsSliding(true),
+    afterChange: () => setIsSliding(false),
   };
   // console.log(itemCategories);
   return (
@@ -31,7 +38,11 @@ const ItemCategoriesContainer = () => {
           const tags = urlParams.get("tags");
 
           return (
-            <Link key={ele.id} to={"/tags/" + collectionId + "/" + tags}>
+            <Link
+              key={ele.id}
+              to={"/tags/" + collectionId + "/" + tags}
+              onClick={handleCardClick}
+            >
               <img className="w-36" src={RES_LOGO_CDN + ele.imageId} />
             </Link>
           );
