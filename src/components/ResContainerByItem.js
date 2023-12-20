@@ -43,7 +43,7 @@ const ResContainerByItem = () => {
         />
       </div>
       <h2 className="mx-16 text-3xl font-semibold">Restaurants To Explore </h2>
-      <div className=" grid grid-cols-5 px-9 gap-4">
+      <div className=" grid grid-cols-4 px-9 gap-4">
         {resList.map((ele) => {
           return (
             <Link
@@ -51,7 +51,7 @@ const ResContainerByItem = () => {
               className="res-menu-link"
               key={ele.card.card.info.id}
             >
-              <RestaurantCard resObj={ele.card.card} />;
+              <RestaurantCard resObj={ele.card.card} />
             </Link>
           );
         })}
