@@ -1,9 +1,12 @@
-import React from "react";
-
+import React, { useEffect } from "react";
+import { clearItems } from "../utils/cartSlice";
+import { useDispatch } from "react-redux";
 const OrderPlaced = ({ update }) => {
+  const dispatch = useDispatch();
   const handleClick = () => {
     update();
   };
+
   return (
     <div className="flex  items-center mt-16  flex-col p-5 border animate-fade-in">
       <h2 className="text-4xl text-black">Order Placed!</h2>

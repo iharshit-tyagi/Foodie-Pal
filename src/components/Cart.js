@@ -32,8 +32,8 @@ const Cart = () => {
             </button>
           </div>
 
-          <div className="flex justify-evenly mb-5">
-            <div className="">
+          <div className="flex  justify-evenly mb-5">
+            <div className=" flex-grow">
               {cartItems.map((items) => {
                 return (
                   <RestaurantMenuItem key={items.info.id} itemDetails={items} />
@@ -41,7 +41,7 @@ const Cart = () => {
               })}
             </div>
 
-            <div className="  flex-grow">
+            <div className="mr-8 ">
               <OrderSummary update={showOrderConfirmation} />
             </div>
           </div>

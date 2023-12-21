@@ -1,15 +1,18 @@
-import { useState } from "react";
-import { Link } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { Link, useLocation } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
 import logo from "../utils/images/Foodie Pal Logo.png";
 import { useSelector } from "react-redux";
 const Header = () => {
   const [loginBtnValue, setLoginBtnValue] = useState("Login");
   const onlineStatus = useOnlineStatus();
-
+  const { pathname } = useLocation();
   //Subscribing to store
   const cartItems = useSelector((store) => store.cart.items);
-
+  useEffect(() => {
+    // Scroll to the top whenever the route changes
+    window.scrollTo(0, 0);
+  }, [pathname]);
   return (
     <div className="flex justify-between shadow-md bg-white">
       <div className="logo-container">
