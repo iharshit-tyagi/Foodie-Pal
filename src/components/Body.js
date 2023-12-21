@@ -13,14 +13,11 @@ const Body = () => {
   //State Variable
 
   const [searchText, setSearchText] = useState("");
-  const [
-    listOfRestaurants,
-    filteredListOfRestaurants,
-    updateListOfRestaurant,
-    bestOffers,
-  ] = useRestaurantList();
+  const [listOfRestaurants, filteredListOfRestaurants, updateListOfRestaurant] =
+    useRestaurantList();
 
   const onlineStatus = useOnlineStatus();
+
   if (onlineStatus === false)
     return (
       <div className="flex justify-center items-center">

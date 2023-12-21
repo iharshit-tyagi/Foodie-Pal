@@ -40,7 +40,7 @@ const ItemCategoriesContainer = () => {
           return (
             <Link
               key={ele.id}
-              to={"/tags/" + collectionId + "/" + tags}
+              to={"/tags/" + collectionId}
               onClick={handleCardClick}
             >
               <img className="w-36" src={RES_LOGO_CDN + ele.imageId} />
