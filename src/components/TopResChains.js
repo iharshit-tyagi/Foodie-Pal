@@ -6,6 +6,8 @@ import Slider from "react-slick";
 import { RES_LOGO_CDN } from "../utils/constants";
 import RestaurantCard from "./RestaurantCard";
 import { Link } from "react-router-dom";
+import NextArrow from "./arrows/NextArrow";
+import PrevArrow from "./arrows/PrevArrow";
 export const TopResChains = () => {
   const [isSliding, setIsSliding] = useState(false);
   const handleCardClick = (e) => {
@@ -21,6 +23,8 @@ export const TopResChains = () => {
     slidesToScroll: 2,
     beforeChange: () => setIsSliding(true),
     afterChange: () => setIsSliding(false),
+    nextArrow: <NextArrow />,
+    prevArrow: <PrevArrow />,
   };
   const topRestChains = useSelector(
     (store) => store.swiggyData.topRestaurantChains

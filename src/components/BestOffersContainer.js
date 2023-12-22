@@ -5,6 +5,8 @@ import { Link } from "react-router-dom";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
+import NextArrow from "./arrows/NextArrow";
+import PrevArrow from "./arrows/PrevArrow";
 const BestOffersContainer = () => {
   const bestOffers = useSelector((store) => store.swiggyData.bestOffers);
   const [isSliding, setIsSliding] = useState(false);
@@ -17,6 +19,8 @@ const BestOffersContainer = () => {
     autoplay: true,
     beforeChange: () => setIsSliding(true),
     afterChange: () => setIsSliding(false),
+    nextArrow: <NextArrow />,
+    prevArrow: <PrevArrow />,
   };
   const handleCardClick = (e) => {
     if (isSliding) {

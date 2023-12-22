@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import { RES_LOGO_CDN } from "../utils/constants";
-
+import NextArrow from "./arrows/NextArrow";
+import PrevArrow from "./arrows/PrevArrow";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
@@ -24,8 +25,10 @@ const ItemCategoriesContainer = () => {
     slidesToScroll: 3,
     beforeChange: () => setIsSliding(true),
     afterChange: () => setIsSliding(false),
+    nextArrow: <NextArrow />,
+    prevArrow: <PrevArrow />,
   };
-  // console.log(itemCategories);
+
   return (
     <div className="w-9/12 mx-auto mt-6">
       <h2 className="text-2xl font-semibold mb-3">What's on your Mind?</h2>
