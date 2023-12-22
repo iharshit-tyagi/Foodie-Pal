@@ -4,7 +4,7 @@ const BestOfferElement = ({ data }) => {
   const { imageId } = data;
   return (
     <div>
-      <img className="w-72" src={RES_LOGO_CDN + imageId} />
+      <img className="" src={RES_LOGO_CDN + imageId} />
     </div>
   );
 };
