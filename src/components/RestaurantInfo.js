@@ -4,7 +4,7 @@ import Shimmer from "./Shimmer";
 import RestaurantMenuItem from "./RestaurantMenuItem";
 import ResMenuCategory from "./ResMenuCategory";
 import { useState } from "react";
-
+import ShimmerList from "./ShimmerList";
 const RestaurantInfo = () => {
   const params = useParams();
   const { resID } = params;
@@ -12,7 +12,7 @@ const RestaurantInfo = () => {
   const [showIndex, setShowIndex] = useState(0);
 
   if (resInfo === null) {
-    return <Shimmer />;
+    return <ShimmerList itemCount={15} />;
   }
 
   const { name, cuisines, costForTwoMessage, avgRating, totalRatingsString } =

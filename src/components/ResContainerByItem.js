@@ -9,7 +9,7 @@ import Shimmer from "./Shimmer";
 import { RES_LOGO_CDN } from "../utils/constants";
 const ResContainerByItem = () => {
   const params = useParams();
-  const dispatch = useDispatch();
+
   const { collectionid, tags } = params;
   useResListByItem(collectionid, tags); //To get the resList
   const resListByItem = useSelector((store) => store.swiggyData.resListByItem);
