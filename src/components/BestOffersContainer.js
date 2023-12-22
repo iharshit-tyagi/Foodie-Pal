@@ -26,7 +26,7 @@ const BestOffersContainer = () => {
   console.log(bestOffers);
   return (
     <div className="text-black mt-3 ">
-      <div className="w-9/12 mx-auto shadow-md">
+      <div className="w-2/3 mx-auto ">
         <h2 className="text-2xl font-semibold mb-3">Best Offers For You</h2>
         <Slider {...settings}>
           {bestOffers

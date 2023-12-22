@@ -27,7 +27,7 @@ export const TopResChains = () => {
   );
   // console.log(topRestChains);
   return (
-    <div className="w-9/12 mx-auto mt-6 shadow-md">
+    <div className="w-9/12 mx-auto mt-6 ">
       <h2 className="text-2xl font-semibold mb-3">Top Restaurant Chains</h2>
       <Slider {...settings}>
         {topRestChains.map((ele) => {
