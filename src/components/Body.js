@@ -1,6 +1,6 @@
 import RestaurantCard from "./RestaurantCard";
 import useRestaurantList from "../utils/useRestaurantList";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Shimmer from "../components/Shimmer";
 
 import { Link } from "react-router-dom";
@@ -15,7 +15,13 @@ const Body = () => {
   const [searchText, setSearchText] = useState("");
   const [listOfRestaurants, filteredListOfRestaurants, updateListOfRestaurant] =
     useRestaurantList();
-
+  useEffect(() => {
+    const searchResultList = listOfRestaurants.filter((res) => {
+      return res.info.name.toLowerCase().includes(searchText.toLowerCase());
+    });
+    // setFilteredListOfRestaurants(searchResultList);
+    updateListOfRestaurant(searchResultList);
+  }, [searchText]);
   const onlineStatus = useOnlineStatus();
 
   if (onlineStatus === false)
@@ -110,15 +116,23 @@ const Body = () => {
           Restaurants with Online Food Delivery
         </h2>
         <div className="mx-auto w-4/5 grid grid-cols-3 gap-2  ">
-          {filteredListOfRestaurants.map((ele) => (
-            <Link
-              to={"/restaurants/" + ele.info.id}
-              className="res-menu-link"
-              key={ele.info.id}
-            >
-              <RestaurantCard resObj={ele} />
-            </Link>
-          ))}
+          {filteredListOfRestaurants.length === 0 ? (
+            <div className="absolute pl-44">
+              <h2 className="text-3xl p-4  text-center h-40 ">
+                No Restaurant Matches Your Query
+              </h2>
+            </div>
+          ) : (
+            filteredListOfRestaurants.map((ele) => (
+              <Link
+                to={"/restaurants/" + ele.info.id}
+                className="res-menu-link"
+                key={ele.info.id}
+              >
+                <RestaurantCard resObj={ele} />
+              </Link>
+            ))
+          )}
         </div>
       </div>
     </div>
