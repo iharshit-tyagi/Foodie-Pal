@@ -22,9 +22,9 @@ const RestaurantMenuItem = (props) => {
           </div>
           {imageId && (
             <div className="relative">
-              <div className="absolute bg-black text-white shadow-lg rounded-sm bottom-0 left-1/4 ">
+              <div className="absolute hover:bg-gray-300 hover:text-black hover:scale-105 transition-transform bg-black text-white shadow-lg rounded-sm bottom-0 left-1/4 ">
                 <button
-                  className="px-2"
+                  className="px-2 "
                   onClick={() => handleAddItem(itemDetails)}
                 >
                   Add +{" "}
