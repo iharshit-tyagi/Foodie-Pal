@@ -27,6 +27,7 @@ const BestOffersContainer = () => {
       e.preventDefault();
     }
   };
+  if (!bestOffers) return null;
 
   return (
     <div className="text-black mt-3 ">
