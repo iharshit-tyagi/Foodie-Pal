@@ -4,11 +4,14 @@ import { addresListByItem, clearResListByItem } from "./swiggyDataSlice";
 const useResListByItem = (collectionid, tags) => {
   const dispatch = useDispatch();
   const Res_By_Item_API =
-    "https://www.swiggy.com/dapi/restaurants/list/v5?lat=28.7040592&lng=77.10249019999999&collection=" +
-    collectionid +
-    "&tags==" +
-    tags +
-    "+&sortBy=&filters=&type=rcv2&offset=0&page_type=null";
+    "https://corsproxy.org/?" +
+    encodeURIComponent(
+      "https://www.swiggy.com/dapi/restaurants/list/v5?lat=28.7040592&lng=77.10249019999999&collection=" +
+        collectionid +
+        "&tags==" +
+        tags +
+        "+&sortBy=&filters=&type=rcv2&offset=0&page_type=null"
+    );
 
   useEffect(() => {
     getData();
