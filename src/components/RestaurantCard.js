@@ -1,7 +1,7 @@
 import { RES_LOGO_CDN } from "../utils/constants";
 const RestaurantCard = (props) => {
   const { resObj } = props;
-  // console.log(resObj);
+
   const { name, cuisines, costForTwo, cloudinaryImageId, avgRating } =
     resObj?.info;
   return (

@@ -13,7 +13,6 @@ const ResContainerByItem = () => {
   const { collectionid, tags } = params;
   useResListByItem(collectionid, tags); //To get the resList
   const resListByItem = useSelector((store) => store.swiggyData.resListByItem);
-  //   console.log(resListByItem); //Initially this will null
 
   const resList = resListByItem.filter((ele) => {
     return (

@@ -15,7 +15,7 @@ const useResListByOffer = (collectionid) => {
   const getData = async () => {
     const data = await fetch(Res_By_Item_API);
     const json = await data.json();
-    console.log(json);
+
     dispatch(addResListByOffer(json.data.cards));
   };
 };

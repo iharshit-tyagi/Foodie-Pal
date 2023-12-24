@@ -12,6 +12,7 @@ const ItemCategoriesContainer = () => {
   const itemCategories = useSelector(
     (store) => store.swiggyData.itemCategories
   );
+
   const handleCardClick = (e) => {
     if (isSliding) {
       e.preventDefault();
@@ -34,11 +35,12 @@ const ItemCategoriesContainer = () => {
       <h2 className="text-2xl font-semibold mb-3">What's on your Mind?</h2>
       <Slider {...settings} arrows={true}>
         {itemCategories.map((ele) => {
-          const urlParams = new URLSearchParams(ele.entityId.split("?")[1]);
+          const urlParams = new URLSearchParams(ele.action.link.split("?")[1]);
 
           // Get the values of collection_id and tags
           const collectionId = urlParams.get("collection_id");
           const tags = urlParams.get("tags");
+          console.log(ele, collectionId);
 
           return (
             <Link

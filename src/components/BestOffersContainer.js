@@ -27,7 +27,7 @@ const BestOffersContainer = () => {
       e.preventDefault();
     }
   };
-  console.log(bestOffers);
+
   return (
     <div className="text-black mt-3 ">
       <div className="w-2/3 mx-auto ">
@@ -39,7 +39,7 @@ const BestOffersContainer = () => {
               const urlParams = new URLSearchParams(
                 ele.action.link.split("?")[1]
               );
-              console.log(ele);
+
               // Get the values of collection_id and tags
               const collectionId = urlParams.get("collection_id");
               // const tags = urlParams.get("tags");
