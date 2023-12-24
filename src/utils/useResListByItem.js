@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
 import React, { useEffect } from "react";
-import { addresListByItem } from "./swiggyDataSlice";
+import { addresListByItem, clearResListByItem } from "./swiggyDataSlice";
 const useResListByItem = (collectionid, tags) => {
   const dispatch = useDispatch();
   const Res_By_Item_API =
@@ -12,6 +12,10 @@ const useResListByItem = (collectionid, tags) => {
 
   useEffect(() => {
     getData();
+
+    return () => {
+      dispatch(clearResListByItem());
+    };
   }, []);
 
   const getData = async () => {

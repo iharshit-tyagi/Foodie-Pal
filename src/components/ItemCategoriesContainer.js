@@ -29,7 +29,7 @@ const ItemCategoriesContainer = () => {
     nextArrow: <NextArrow />,
     prevArrow: <PrevArrow />,
   };
-
+  if (!itemCategories) return null;
   return (
     <div className="w-9/12 mx-auto mt-6">
       <h2 className="text-2xl font-semibold mb-3">What's on your Mind?</h2>
