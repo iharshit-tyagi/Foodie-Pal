@@ -17,7 +17,4 @@ export const MENU_ITEM_IMG_URL =
     "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_1024/"
   );
 export const SWIGGY_API_URL_PUNE =
-  "https://corsproxy.org/?" +
-  encodeURIComponent(
-    "https://www.swiggy.com/dapi/restaurants/list/v5?lat=18.5204303&lng=73.8567437&is-seo-homepage-enabled"
-  );
+  "https://www.swiggy.com/dapi/restaurants/list/v5?lat=18.5204303&lng=73.8567437&is-seo-homepage-enabled";

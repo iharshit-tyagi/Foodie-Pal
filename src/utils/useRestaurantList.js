@@ -30,13 +30,16 @@ const useRestaurantList = () => {
     const data = await fetch(SWIGGY_API_URL_PUNE);
 
     const jsonData = await data.json();
-
+    console.log(
+      jsonData?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle
+        ?.restaurants
+    );
     setListOfRestaurants(
-      jsonData?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle
+      jsonData?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle
         ?.restaurants
     );
     setFilteredListOfRestaurants(
-      jsonData?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle
+      jsonData?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle
         ?.restaurants
     );
 
@@ -47,12 +50,12 @@ const useRestaurantList = () => {
     );
     dispatch(
       addItemCategories(
-        jsonData?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.info
+        jsonData?.data?.cards[0]?.card?.card?.gridElements?.infoWithStyle?.info
       )
     );
     dispatch(
       addTopRestaurantChains(
-        jsonData?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle
+        jsonData?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle
           ?.restaurants
       )
     );

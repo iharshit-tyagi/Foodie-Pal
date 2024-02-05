@@ -40,9 +40,7 @@ const Body = () => {
     </div>
   ) : (
     <div className="w-screen ">
-      <div className="mx-auto">
-        <BestOffersContainer />
-      </div>
+      <div className="mx-auto">{/* <BestOffersContainer /> */}</div>
       <div className="mx-auto">
         <ItemCategoriesContainer />
       </div>
